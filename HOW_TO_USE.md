@@ -12,15 +12,28 @@ for MonkeyCode automatically, so your agent never needs to know about OhMyAgent 
 
 ## Step 0 — Get your keys (5 minutes)
 
-1. Go to the MonkeyCode web UI and open the model settings / API page.
-2. Click **create an API key** for OhMyAgent.
-3. The UI shows two values **exactly once** — copy both now:
-   - `api_key` → this is your **API key**
-   - `signing_secret` → this is your **signing secret**
-4. Also note the **model name string(s)** you can access (the `model` field, e.g.
+The bridge needs two values from your **MonkeyCode account**: an **OhMyAgent API key** and its
+**signing secret**. They come from the MonkeyCode web UI and are shown **exactly once**.
+
+> Where exactly the "create API key" button lives changes between MonkeyCode releases. Look for
+> **Settings → Model / API**, **API keys**, **Tokens**, or **OhMyAgent** in the web app. If you
+> can't find it, ask in the MonkeyCode community or open an issue on the repo — it's the same page
+> where you'd paste an external model endpoint (base URL + key).
+
+1. Open <https://monkeycode-ai.net/> and **sign in** (create a free account if you don't have one).
+2. In the web app, open the **model settings / API** page (see note above).
+3. Click **create an API key** for **OhMyAgent** (the field name is exactly `api_key`).
+4. The UI shows two values **exactly once** — copy **both** now, before closing the page:
+   - `api_key` → starts with `oma_…` → this is your **API key**
+   - `signing_secret` → starts with `omas_…` → this is your **signing secret**
+5. Also note the **model name string(s)** you can access (the `model` field, e.g.
    `monkeycode-basic/qwen3.5-plus`). It is the model **name**, not a UUID.
 
-> Treat both values like passwords. Never paste them into chat, docs, or git.
+> These prefixes (`oma_` / `omas_`) are a quick sanity check — if what you copied doesn't start
+> with them, you grabbed the wrong values.
+>
+> Treat both values like passwords. Never paste them into chat, docs, or git. The setup scripts and
+> the README only ever reference them through your local `config.json`.
 
 ---
 
