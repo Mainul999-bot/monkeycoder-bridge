@@ -49,6 +49,16 @@ opencode ── POST /v1/chat/completions ──▶ MonkeyCoder Bridge (localhos
 
 ## Setup
 
+**Fastest path — one command** (Windows). It fills `config.json` from your keys, starts the bridge,
+and auto-configures opencode, Claude Code, and Continue:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup.ps1
+# add -RegisterAutoStart to start the bridge on login
+```
+
+Manual steps below, if you prefer to do it by hand:
+
 ```powershell
 # 1. configure
 Copy-Item config.example.json config.json

@@ -62,6 +62,34 @@ Example `config.json`:
 
 ---
 
+## Step 1.5 — Auto-setup for your AI agents (Windows, recommended)
+
+One command does Step 1 + Step 2 + agent configuration for you:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup.ps1
+```
+
+What it does automatically:
+
+1. Creates `config.json` from the template and prompts you to paste your two keys.
+2. Starts the bridge in the background and waits until `healthz` responds.
+3. Configures the agents that read a config file:
+   - **opencode** → adds a `monkeycode` provider to `~/.config/opencode/opencode.json`
+   - **Claude Code** → sets `ANTHROPIC_BASE_URL`, `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_MODEL` in `~/.claude/settings.json`
+   - **Continue** → adds each model to `~/.continue/config.json`
+4. Prints the values you still have to type by hand into apps that need in-app settings
+   (Cursor, Cline, Cherry Studio, Windsurf).
+5. Add `-RegisterAutoStart` to also make the bridge start automatically when you log in:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File setup.ps1 -RegisterAutoStart
+   ```
+
+You can re-run `setup.ps1` any time — it never overwrites an existing `config.json`, and it skips
+agents it already configured.
+
+---
+
 ## Step 2 — Start the bridge
 
 ```powershell
