@@ -1,0 +1,16 @@
+# Secrets — never commit these
+config.json
+
+# Dependencies
+node_modules/
+
+# Runtime logs
+*.log
+bridge.out.log
+bridge.err.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

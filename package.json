@@ -1,0 +1,26 @@
+{
+  "name": "monkeycoder-bridge",
+  "version": "1.0.0",
+  "description": "Zero-dependency local proxy that lets any AI coding agent use MonkeyCode free-plan models via an OhMyAgent API key.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/smoke.js",
+    "watch": "powershell -ExecutionPolicy Bypass -File watch-usage.ps1"
+  },
+  "keywords": [
+    "monkeycode",
+    "ohmyagent",
+    "llm-proxy",
+    "opencode",
+    "claude-code",
+    "cursor",
+    "openai-compatible",
+    "anthropic-compatible"
+  ],
+  "license": "MIT"
+}

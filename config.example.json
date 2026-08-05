@@ -1,0 +1,12 @@
+{
+  "port": 8787,
+  "host": "127.0.0.1",
+  "upstreamBaseUrl": "https://monkeycode-ai.net",
+  "apiKey": "YOUR_OHMYAGENT_API_KEY",
+  "signingSecret": "YOUR_OHMYAGENT_SIGNING_SECRET",
+  "modelName": null,
+  "models": [
+    { "id": "monkeycode-basic/qwen3.5-plus", "name": "MonkeyCode Free - Qwen 3.5 Plus" },
+    { "id": "monkeycode-basic/deepseek-v4-flash", "name": "MonkeyCode Free - DeepSeek v4 Flash" }
+  ]
+}

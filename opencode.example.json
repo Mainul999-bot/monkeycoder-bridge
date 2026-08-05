@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "monkeycode": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "MonkeyCode Bridge",
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/v1",
+        "apiKey": "bridge-dummy"
+      },
+      "models": {
+        "monkeycode-basic/qwen3.5-plus": {
+          "name": "MonkeyCode Free - Qwen 3.5 Plus"
+        },
+        "monkeycode-basic/deepseek-v4-flash": {
+          "name": "MonkeyCode Free - DeepSeek v4 Flash"
+        }
+      }
+    }
+  }
+}
