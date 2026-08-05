@@ -5,8 +5,12 @@ Continue, ...) use the free-plan models of the hosted MonkeyCode platform (`monk
 through an **OhMyAgent API key**.
 
 > **New here? Read [`HOW_TO_USE.md`](HOW_TO_USE.md)** — a beginner-friendly, step-by-step guide
-> covering keys, install, config, and how to connect **any** AI agent. This README is the technical
-> reference.
+> covering keys, install, config, and how to connect **any** AI agent.
+>
+> **New machine / full setup: [`SETUP.md`](SETUP.md)** — complete Windows, macOS, and Linux flow
+> from a blank computer to a working agent connection.
+>
+> This README is the technical reference.
 
 MonkeyCode's OhMyAgent keys require every request to carry an
 `X-OhMyAgent-Signature: v1=<hex>` header, where `<hex>` is the
