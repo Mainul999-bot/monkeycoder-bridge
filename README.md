@@ -41,12 +41,14 @@ opencode ── POST /v1/chat/completions ──▶ MonkeyCoder Bridge (localhos
 ## Prerequisites
 
 - Node.js 18+ (built and tested on Node 24).
-- An **OhMyAgent API key** created in the MonkeyCode web UI.
-  - The UI returns `api_key` + `signing_secret` exactly once — save both immediately.
+- An **OhMyAgent API key** created via a console command in the MonkeyCode web app.
+  - Running `fetch('/api/v1/users/ohmyagent/api-keys', { method: 'POST' })` in the browser
+    dev-tools console returns `api_key` + `signing_secret` exactly once — save both immediately.
+    (Full walkthrough in [HOW_TO_USE.md Step 0](HOW_TO_USE.md#step-0--get-your-keys-5-minutes).)
 - The **model name string(s)** of the free-plan model(s) you can access.
-  - These are the `model` field values of your model configs (`GET /api/v1/users/models` in the API,
-    or the model settings in the UI). The hosted proxy matches your request's `model` value against
-    this exact string, so it must match, e.g. a GLM model name like `glm-4.6`.
+  - These are the `model` field values of your model configs (`GET /api/v1/users/models?limit=100` in
+    the dev-tools console). The hosted proxy matches your request's `model` value against
+    this exact string, so it must match, e.g. `monkeycode-basic/qwen3.5-plus`.
   - Note: it is the model **name**, not the model config UUID.
   - To use **all** your free models, leave `modelName` empty in `config.json` and list every model
     string in your opencode config.

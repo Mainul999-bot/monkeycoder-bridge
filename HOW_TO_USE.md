@@ -13,27 +13,42 @@ for MonkeyCode automatically, so your agent never needs to know about OhMyAgent 
 ## Step 0 — Get your keys (5 minutes)
 
 The bridge needs two values from your **MonkeyCode account**: an **OhMyAgent API key** and its
-**signing secret**. They come from the MonkeyCode web UI and are shown **exactly once**.
-
-> Where exactly the "create API key" button lives changes between MonkeyCode releases. Look for
-> **Settings → Model / API**, **API keys**, **Tokens**, or **OhMyAgent** in the web app. If you
-> can't find it, ask in the MonkeyCode community or open an issue on the repo — it's the same page
-> where you'd paste an external model endpoint (base URL + key).
+**signing secret**. They are created from the MonkeyCode web app itself, using two short commands
+in your browser's **developer-tools console**. The key + secret are shown to you **once** when
+created.
 
 1. Open <https://monkeycode-ai.net/> and **sign in** (create a free account if you don't have one).
-2. In the web app, open the **model settings / API** page (see note above).
-3. Click **create an API key** for **OhMyAgent** (the field name is exactly `api_key`).
-4. The UI shows two values **exactly once** — copy **both** now, before closing the page:
+2. Open the browser's **developer tools** and go to the **Console** tab:
+   - Chrome / Edge: `F12` → **Console**
+   - Firefox: `F12` (or `Ctrl+Shift+K`) → **Console**
+   - Safari: enable *Develop* in Preferences → Advanced, then `Option+Cmd+C`
+3. Create your OhMyAgent API key — paste this **one-liner** into the console and press Enter:
+
+   ```js
+   fetch('/api/v1/users/ohmyagent/api-keys', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+     .then(r => r.json()).then(d => console.log(JSON.stringify(d, null, 2)))
+   ```
+
+   The console prints a JSON object with both values **this one time** — copy them now:
    - `api_key` → starts with `oma_…` → this is your **API key**
    - `signing_secret` → starts with `omas_…` → this is your **signing secret**
-5. Also note the **model name string(s)** you can access (the `model` field, e.g.
-   `monkeycode-basic/qwen3.5-plus`). It is the model **name**, not a UUID.
+4. List your model name strings — paste this second command and press Enter:
+
+   ```js
+   fetch('/api/v1/users/models?limit=100')
+     .then(r => r.json()).then(d => console.log(JSON.stringify(d, null, 2)))
+   ```
+
+   Find the entries you can actually use: the `model` field is the exact string the bridge needs
+   (e.g. `monkeycode-basic/qwen3.5-plus`). It is the model **name**, not a UUID.
+5. If you ever lose the printed values, re-run the create-key command to mint a new key.
 
 > These prefixes (`oma_` / `omas_`) are a quick sanity check — if what you copied doesn't start
 > with them, you grabbed the wrong values.
 >
-> Treat both values like passwords. Never paste them into chat, docs, or git. The setup scripts and
-> the README only ever reference them through your local `config.json`.
+> Run these commands only on the monkeycode-ai.net page, while signed in — they use your logged-in
+> session. Treat both values like passwords. Never paste them into chat, docs, or git. The setup
+> scripts and the README only ever reference them through your local `config.json`.
 
 ---
 

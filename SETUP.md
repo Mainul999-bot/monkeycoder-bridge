@@ -15,7 +15,7 @@ working agent connection, on **Windows**, **macOS**, and **Linux**.
 | ------------ | ------------------------------------------------------- |
 | Node.js      | v18+ (`node -v`). macOS/Linux install via [nodejs.org](https://nodejs.org); Windows in step 1 |
 | Git          | to clone the repo                                       |
-| MonkeyCode   | an **OhMyAgent API key** + **signing secret** (from the MonkeyCode web UI, shown once). Full walkthrough in [HOW_TO_USE.md Step 0](HOW_TO_USE.md#step-0--get-your-keys-5-minutes) |
+| MonkeyCode   | an **OhMyAgent API key** + **signing secret** (created via two console commands in the MonkeyCode web app, shown once). Full walkthrough in [HOW_TO_USE.md Step 0](HOW_TO_USE.md#step-0--get-your-keys-5-minutes) |
 
 There is **no way around your two keys** â€” they are private to you and are never in the repo.
 Everything else below is scripted.
